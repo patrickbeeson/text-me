@@ -12,15 +12,16 @@ def hello():
 
     resp = twilio.twiml.Response()
 
-    if body == '#bff':
-        resp.message('#awesome')
-        resp.message("What's your name?")
-        user_name = request.values.get('Body', None)
-        if user_name:
-            resp.message("It's great to meet you {name}!".format(name=user_name))
-    else:
-        resp.message("#lame")
-        break
+    while True:
+        if body == '#bff':
+            resp.message('#awesome')
+            resp.message("What's your name?")
+            user_name = request.values.get('Body', None)
+            if user_name:
+                resp.message("It's great to meet you {name}!".format(name=user_name))
+        else:
+            resp.message("#lame")
+            break
 
     # resp.message("Wanna set up a play date?")
 
