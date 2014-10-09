@@ -15,18 +15,21 @@ def hello():
     if body == '#bff':
         resp.message('#awesome')
         resp.message("What's your name?")
-        user_name = request.values.get('Body', None)
-        resp.message("It's great to meet you {name}!".format(name=user_name))
-        resp.message("Wanna set up a play date?")
-        play_date_response = request.values.get('Body', None)
-        if play_date_response.lower() == 'yes':
-            resp.message("That's great! "
-                         "Get your parent's permission, "
-                         "and go to http://chatsters.com.")
-        elif play_date_response.lower() == 'no':
-            resp.message("Too bad. Maybe another time!")
-        else:
-            resp.message("#lame")
+    else:
+        resp.message("#lame")
+
+    user_name = request.values.get('Body', None)
+
+    resp.message("It's great to meet you {name}!".format(name=user_name))
+    resp.message("Wanna set up a play date?")
+
+    play_date_response = request.values.get('Body', None)
+    if play_date_response.lower() == 'yes':
+        resp.message("That's great! "
+                     "Get your parent's permission, "
+                     "and go to http://chatsters.com.")
+    elif play_date_response.lower() == 'no':
+        resp.message("Too bad. Maybe another time!")
     else:
         resp.message('#lame')
 
