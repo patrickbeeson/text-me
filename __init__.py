@@ -3,9 +3,6 @@ import twilio.twiml
 
 app = Flask(__name__)
 
-responses = {
-    ''
-}
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
