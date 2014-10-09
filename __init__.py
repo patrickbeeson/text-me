@@ -8,6 +8,8 @@ app = Flask(__name__)
 def hello():
     """ Respond to incoming calls with a SMS """
 
+    body = request.values.get('Body', None)
+
     resp = twilio.twiml.Response()
 
     if body == '#bff':
