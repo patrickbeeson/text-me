@@ -26,23 +26,28 @@ def send_image():
 
 
 def mod_photo(user_text):
-    base = Image.open('static/images/portland.jpg').convert('RGBA')
+    base = Image.open('static/images/original/portland.jpg').convert('RGBA')
 
     txt = Image.new('RGBA', base.size, (255, 255, 255, 0))
 
-    fnt = ImageFont.truetype('static/fonts/Gobold.ttf', 16)
+    fnt = ImageFont.truetype('static/fonts/Gobold.ttf', 30)
 
     d = ImageDraw.Draw(txt)
 
-    d.text((25, 25), '{}...'.format(user_text), font=fnt, fill=(255, 255, 255, 255))
+    d.text(
+        (25, 25),
+        '{}...'.format(user_text),
+        font=fnt,
+        fill=(255, 255, 255, 255)
+    )
 
     image = Image.alpha_composite(base, txt)
 
-    image.save('static/images/portland_{}.jpg'.format(user_text))
+    image.save('static/images/changed/portland_{}.jpg'.format(user_text))
 
     try:
-        msg_text = 'Imagine yourself in Portland!'
-        image_url = 'http://12dcb913.ngrok.com/images/portland_{}.jpg'.format(user_text)
+        msg_text = '{}: Imagine yourself in Portland!'.format(user_text)
+        image_url = 'http://12dcb913.ngrok.com/images/changed/portland_{}.jpg'.format(user_text)
     except:
         msg = "Sorry, we couldn't pull a kitten, " + \
               "here's a dinosaur instead!"
