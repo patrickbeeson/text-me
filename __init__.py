@@ -47,7 +47,7 @@ def mod_photo(user_text):
 
     try:
         msg_text = '{}: Imagine yourself in Portland!'.format(user_text)
-        image_url = 'http://12dcb913.ngrok.com/images/changed/portland_{}.jpg'.format(user_text)
+        image_url = 'http://dev.thevariable.com/images/changed/portland_{}.jpg'.format(user_text)
     except:
         msg = "Sorry, we couldn't pull a kitten, " + \
               "here's a dinosaur instead!"
