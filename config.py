@@ -20,6 +20,9 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    TWILIO_ACCOUNT = 'AC50417625aa8d4ddd604a591f14c4cd45'
-    TWILIO_TOKEN = '6ebbb01d399af6ef836d82e689b2940e'
+    TWILIO_ACCOUNT = 'ACb01b4d6edfb1b41a8b80f5fed2c19d1a'
+    TWILIO_TOKEN = '97e6b9c0074b2761eff1375fb088adda'
+    #TWILIO_ACCOUNT = 'AC50417625aa8d4ddd604a591f14c4cd45'
+    #TWILIO_TOKEN = '6ebbb01d399af6ef836d82e689b2940e'
     SITE_URL = 'http://dev.thevariable.com/'
+    STATIC_PATH = '/Users/pbeeson/sites/textme/app/'
