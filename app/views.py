@@ -19,7 +19,7 @@ def send_image():
                ' Twilio message text box for your phone number.'
     sender_number = request.form.get('From', '')
     twilio_number = request.form.get('To', '')
-    user_text = request.form.get('Body', '')
+    user_text = request.form.get('Body', '').strip().split()[0]
     image_url, msg_text = mod_photo(user_text)
     send_mms_twiml(image_url, msg_text, sender_number, twilio_number)
     return 'ok'
@@ -64,10 +64,9 @@ def mod_photo(user_text):
             image_time_stamp.strftime('%y_%m_%d_%I%M%S')
         )
     except:
-        msg_text = "Sorry, we couldn't pull a kitten, " + \
-            "here's a dinosaur instead!"
-        image_url = "https://farm1.staticflickr.com/46/" + \
-                    "154877897_a299d80baa_b_d.jpg"
+        msg_text = "#ohno! We had trouble creating your image. " + \
+            "Here's a cute kitten instead!"
+        image_url = "http://placekitten.com/g/640/1136"
 
     return image_url, msg_text
 

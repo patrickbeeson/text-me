@@ -1,6 +1,7 @@
 Flask==0.10.1
 Jinja2==2.7.3
 MarkupSafe==0.23
+Pillow==2.6.0
 SocksiPy-branch==1.01
 Werkzeug==0.9.6
 httplib2==0.9
