@@ -53,7 +53,7 @@ def mod_photo(user_text):
     text_w, text_h = d.textsize(user_text, fnt)
 
     d.text(
-        (((base_w-text_w)/2), 305),
+        (((base_w-text_w)/2), 295),
         '{}'.format(user_text),
         font=fnt,
         fill=(143, 83, 157, 255)
@@ -63,9 +63,10 @@ def mod_photo(user_text):
 
     image_time_stamp = datetime.datetime.now()
 
-    image.save(static_path + 'static/images/changed/chatsters_poster_{}_{}.png'.format(
-        user_text,
-        image_time_stamp.strftime('%y_%m_%d_%I%M%S')
+    image.save(
+        static_path + 'static/images/changed/chatsters_poster_{}_{}.png'.format(
+            user_text,
+            image_time_stamp.strftime('%y_%m_%d_%I%M%S')
         )
     )
 
