@@ -4,7 +4,7 @@ from twilio.rest import TwilioRestClient
 
 from flask import Flask, request
 from app import app
-from config import TWILIO_ACCOUNT, TWILIO_PASSWORD
+from config import TWILIO_ACCOUNT, TWILIO_PASSWORD, PROD_URL
 
 client = TwilioRestClient(TWILIO_ACCOUNT, TWILIO_PASSWORD)
 
@@ -59,7 +59,8 @@ def mod_photo(user_text):
 
     try:
         msg_text = 'Thanks for the text {}! Here\'s your custom phone wallpaper.'.format(user_text)
-        image_url = 'http://dev.thevariable.com/static/images/changed/chatsters_poster_{}_{}.png'.format(
+        image_url = '{}/static/images/changed/chatsters_poster_{}_{}.png'.format(
+            PROD_URL,
             user_text,
             image_time_stamp.strftime('%y_%m_%d_%I%M%S')
         )
