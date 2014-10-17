@@ -29,7 +29,7 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     mail_handler = SMTPHandler(
         MAIL_SERVER,
-        'pbeeson@thevariable.com',
+        'textme@mail.com',
         ADMINS,
         'An error has occured',
         credentials=credentials

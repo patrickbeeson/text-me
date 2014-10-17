@@ -38,13 +38,13 @@ def mod_photo(user_text):
     Modifies a base image to add the sender's text (ideally, their name)
     """
     base = Image.open(
-        static_path + 'static/images/original/chatsters_poster.png'
+        static_path + 'static/images/original/place_kitten.jpeg'
     ).convert('RGBA')
 
     txt = Image.new('RGBA', base.size, (143, 83, 157, 0))
 
     fnt = ImageFont.truetype(
-        static_path + 'static/fonts/GothamRounded-Bold.otf', 86
+        static_path + 'static/fonts/OpenSans-Bold.ttf', 86
     )
 
     d = ImageDraw.Draw(txt)
@@ -64,7 +64,7 @@ def mod_photo(user_text):
     image_time_stamp = datetime.datetime.now()
 
     image.save(
-        static_path + 'static/images/changed/chatsters_poster_{}_{}.png'.format(
+        static_path + 'static/images/changed/place_kitten_{}_{}.jpeg'.format(
             user_text,
             image_time_stamp.strftime('%y_%m_%d_%I%M%S')
         )
@@ -72,15 +72,14 @@ def mod_photo(user_text):
 
     try:
         msg_text = (
-            "Thanks, {}. Hope you liked my poster :) "
-            "Visit {} for a $10 off Chatsters coupon "
-            "and let's have a play date!".format(
+            "Thanks, {}. Hope you liked my kitten :) "
+            "Visit {} to search for more kittens!".format(
                 user_text,
-                'http://goo.gl/TPZcjw'
+                'http://google.com'
             )
         )
         image_url = (
-            '{}static/images/changed/chatsters_poster_{}_{}.png'.format(
+            '{}static/images/changed/place_kitten_{}_{}.jpeg'.format(
                 site_url,
                 user_text,
                 image_time_stamp.strftime('%y_%m_%d_%I%M%S')
